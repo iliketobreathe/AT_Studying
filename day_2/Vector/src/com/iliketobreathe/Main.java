@@ -12,13 +12,13 @@ public class Main {
 		Vector3d d = new Vector3d(8, 8, 8);
 
     	System.out.println(a.scalarMult(b));
-    	System.out.println(Arrays.toString(a.add(b)));
-		System.out.println(Arrays.toString(a.subtract(b)));
+    	System.out.println(a.add(b).toString());
+		System.out.println(a.subtract(b).toString());
 		System.out.println();
 
 		System.out.println(c.scalarMult(d));
-		System.out.println(Arrays.toString(c.vectorMult(d)));
-		System.out.println(Arrays.toString(c.add(d)));
-		System.out.println(Arrays.toString(c.subtract(d)));
+		System.out.println(c.vectorMult(d).toString());
+		System.out.println(c.add(d).toString());
+		System.out.println(c.subtract(d).toString());
     }
 }

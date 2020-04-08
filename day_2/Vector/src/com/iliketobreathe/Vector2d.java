@@ -9,18 +9,22 @@ public final class Vector2d extends AbstractVector {
         this.vector = new double[]{x, y};
     }
 
+    public Vector2d(double[] vector) {
+        this.vector = vector;
+    }
+
     public double[] getVector() {
         return vector;
     }
 
     @Override
-    public double[] add(AbstractVector abstractVector) {
-        return new double[] {this.vector[0] + ((Vector2d)abstractVector).getVector()[0], this.vector[1] + ((Vector2d)abstractVector).getVector()[1]};
+    public AbstractVector add(AbstractVector abstractVector) {
+        return new Vector2d(new double[] {this.vector[0] + ((Vector2d)abstractVector).getVector()[0], this.vector[1] + ((Vector2d)abstractVector).getVector()[1]});
     }
 
     @Override
-    public double[] subtract(AbstractVector abstractVector) {
-        return new double[] {this.vector[0] - ((Vector2d)abstractVector).getVector()[0], this.vector[1] - ((Vector2d)abstractVector).getVector()[1]};
+    public AbstractVector subtract(AbstractVector abstractVector) {
+        return new Vector2d(new double[] {this.vector[0] - ((Vector2d)abstractVector).getVector()[0], this.vector[1] - ((Vector2d)abstractVector).getVector()[1]});
     }
 
     @Override

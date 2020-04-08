@@ -9,18 +9,22 @@ public final class Vector3d extends AbstractVector implements VectorMultipliable
         this.vector = new double[]{x, y, z};
     }
 
+    public Vector3d(double[] vector) {
+        this.vector = vector;
+    }
+
     public double[] getVector() {
         return vector;
     }
 
     @Override
-    public double[] add(AbstractVector abstractVector) {
-        return new double[] {this.vector[0] + ((Vector3d)abstractVector).getVector()[0], this.vector[1] + ((Vector3d)abstractVector).getVector()[1], this.vector[2] + ((Vector3d)abstractVector).getVector()[2]};
+    public AbstractVector add(AbstractVector abstractVector) {
+        return new Vector3d(new double[] {this.vector[0] + ((Vector3d)abstractVector).getVector()[0], this.vector[1] + ((Vector3d)abstractVector).getVector()[1], this.vector[2] + ((Vector3d)abstractVector).getVector()[2]});
     }
 
     @Override
-    public double[] subtract(AbstractVector abstractVector) {
-        return new double[] {this.vector[0] - ((Vector3d)abstractVector).getVector()[0], this.vector[1] - ((Vector3d)abstractVector).getVector()[1], this.vector[2] - ((Vector3d)abstractVector).getVector()[2]};
+    public AbstractVector subtract(AbstractVector abstractVector) {
+        return new Vector3d(new double[] {this.vector[0] - ((Vector3d)abstractVector).getVector()[0], this.vector[1] - ((Vector3d)abstractVector).getVector()[1], this.vector[2] - ((Vector3d)abstractVector).getVector()[2]});
     }
 
     @Override
@@ -29,9 +33,9 @@ public final class Vector3d extends AbstractVector implements VectorMultipliable
     }
 
     @Override
-    public double[] vectorMult(AbstractVector abstractVector) {
+    public AbstractVector vectorMult(AbstractVector abstractVector) {
         double[] vector = ((Vector3d)abstractVector).getVector();
-        return new double[] {this.vector[1] * vector[2] - this.vector[2] * vector[1], this.vector[2] * vector[0] - this.vector[0] * vector[2], this.vector[0] * vector[1] - this.vector[1] * vector[0]};
+        return new Vector3d(new double[] {this.vector[1] * vector[2] - this.vector[2] * vector[1], this.vector[2] * vector[0] - this.vector[0] * vector[2], this.vector[0] * vector[1] - this.vector[1] * vector[0]});
     }
 
     @Override
