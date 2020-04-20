@@ -28,14 +28,19 @@ public class UploadTest {
     @Test
     public void test() {
         WebElement uploadElement = driver.findElement(By.id("uploadfile_0"));
+
         uploadElement.sendKeys("C:/YandexDisk/1.txt");
+
         driver.findElement(By.id("terms")).submit();
+
         WebElement resultElement = driver.findElement(By.cssSelector("#res"));
+        WebElement resultText = driver.findElement(By.cssSelector("#res > center"));
+
         driver.findElement(By.name("send")).click();
 
         wait.until(ExpectedConditions.attributeContains(resultElement, "style", "display: block"));
 
-        Assert.assertTrue(resultElement.getAttribute("style").contains("display: block"));
+        Assert.assertTrue(resultText.getText().contains(" successfully"));
     }
 
     @AfterTest
